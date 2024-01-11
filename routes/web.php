@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
-
+use App\Http\Controllers\IndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,4 +14,9 @@ use App\Http\Controllers\ApiController;
 |
 */
 
-Route::get('/', [ApiController::class, 'getDataFromApi']);
+Route::get('/', [IndexController::class, 'searchIndexMagang']);
+Route::get('/search-magang', [IndexController::class, 'searchIndexMagang']);
+Route::get('/search-studi-independen', [IndexController::class, 'searchIndexStudiIndependen']);
+
+Route::POST('getDataMagang', [ApiController::class, 'getDataMagangFromApi']);
+Route::POST('getDataSI', [ApiController::class, 'getDataStudiIndependenFromApi']);
